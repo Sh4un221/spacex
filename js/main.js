@@ -1,27 +1,13 @@
-import {
-    getAllRockets
-} from "./modules/rockets.js";
+import { getAllRockets } from "./modules/rockets.js";
+import { progressRocketWeight, progressPayloadWeights } from "./modulesComponents/progressBar.js";
+
+
 let information__2 = document.querySelector("#information__2");
 let dataRockets = await getAllRockets();
-[Rocket1]=dataRockets;
-dataRockets.forEach(val => {
-    let divInformationContainer = document.createElement("div");
-    divInformationContainer.classList.add("information_container");
-    let divFirst = document.createElement("div");
-    let labelFirst = document.createElement("label");
-    labelFirst.textContent = "File progress";
-    let ProgressFirst = document.createElement("progress");
-    ProgressFirst.max = 100;
-    ProgressFirst.value = 70;
-    ProgressFirst.textContent = "Lorem ipsum"
-    let divLast = document.createElement("div");
-    let spanLast = document.createElement("span");
-    spanLast.textContent = "Lorem ipsum.."
-    divFirst.append(labelFirst);
-    divFirst.append(ProgressFirst)
-    divLast.append(spanLast)
-    divInformationContainer.append(divFirst)
-    divInformationContainer.append(divLast)
-    console.log(divInformationContainer);
-    // information__2.append(divInformationContainer);
-});
+let Totales = dataRockets.pop()
+
+let [Rockets1, Rockets2, Rockets3] = dataRockets;
+
+
+information__2.append(...progressRocketWeight(Totales.kg_max, [Rockets1]))
+information__2.append(...progressPayloadWeights(Totales.payload_weights, Rockets1))
