@@ -13,11 +13,13 @@ export const rocketGeneralInformation = (Rockets) => {
             <div class="description__container">
                 <div class="rocket__general">
                     <img src="${val.flickr_images[0]}">
-                    <h3>Nombre: ${val.name}</h3>
-                    <h3>Tipo: ${val.type}</h3>
-                    <h3>Empresa: ${val.company}</h3>
-                    <h3>Estado: ${status}</h3>
-                    <h4>Descripcion: ${val.description}</h4>
+                    <p><strong>Name</strong>: ${val.name}</p>
+                    <p><strong>Type</strong>: ${val.type}</p>
+                    <p><strong>Country</strong>: ${val.country}</p>
+                    <p><strong>Company</strong>: ${val.company}</p>
+                    <p><strong>Status</strong>: ${status}</p>
+                    <p><strong>Description</strong>: ${val.description}</p>
+
 
                 </div>
             </div>`;
