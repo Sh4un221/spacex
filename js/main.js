@@ -11,7 +11,9 @@ import {
 
 document.addEventListener("DOMContentLoaded", async () => {
     let information__2 = document.querySelector("#information__2");
-    let information__1 = document.querySelector("#description__item");
+    let description__item = document.querySelector("#description__item");
+    let description__buttom=document.querySelector("#description__buttom")
+
 
     let dataRockets = await getAllRockets();
     let Totales = dataRockets.pop();
@@ -20,12 +22,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(dataRockets);
     console.log(Totales);
 
-    information__2.append(...progressRocketWeight(Totales.kg_max, Rocket3));
-    information__2.append(...progressPayloadWeights(Totales.payload_weights, Rocket3));
-    information__2.append(...progressHeightRocket(Totales.height, Rocket3));
-    information__2.append(...progressDiameterRocket(Totales.diameter, Rocket3));
-    information__2.append(...progressSecondStageDiameterRocket(Totales.composite_diameter, Rocket3));
-    information__2.append(...progressSecondStageHeightRocket(Totales.composite_height, Rocket3));
-    
-    information__1.innerHTML = rocketGeneralInformation([Rocket3]); // Pasamos un array con un solo cohete
+    information__2.append(...progressRocketWeight(Totales.kg_max, Rocket4));
+    information__2.append(...progressPayloadWeights(Totales.payload_weights, Rocket4));
+    information__2.append(...progressHeightRocket(Totales.height, Rocket4));
+    information__2.append(...progressDiameterRocket(Totales.diameter, Rocket4));
+    information__2.append(...progressSecondStageDiameterRocket(Totales.composite_diameter, Rocket4));
+    information__2.append(...progressSecondStageHeightRocket(Totales.composite_height, Rocket4));    
+    description__item.innerHTML = rocketGeneralInformation([Rocket4]); 
 });
