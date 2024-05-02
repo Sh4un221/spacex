@@ -211,3 +211,7 @@ body{
     display: flex;
     align-items: flex-end;
 }
+.rocket__general img{
+    width: 280px;
+    height: 300px;
+}

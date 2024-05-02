@@ -1,20 +1,27 @@
+// content.js
 export const rocketGeneralInformation = (Rockets) => {
-    let conterDiv = [];
+    let htmlContent = '';
 
-    [Rockets].forEach(val => {
-        let descriptionContainer = document.createElement("div")
-        descriptionContainer.classList.add("description__container")
-        let divFirst = document.createElement("div")
-        let h3first = document.createElement("h3")
-        let h3second = document.createElement("h3")
-        let h3third = document.createElement("h3")
+    Rockets.forEach(val => {
+        let status = ''
+        if (val.active === false) {
+            status = "No esta activo"
+        } else {
+            status = "Activo"
+        }
+        htmlContent += `
+            <div class="description__container">
+                <div class="rocket__general">
+                    <img src="${val.flickr_images[0]}">
+                    <h3>Nombre: ${val.name}</h3>
+                    <h3>Tipo: ${val.type}</h3>
+                    <h3>Empresa: ${val.company}</h3>
+                    <h3>Estado: ${status}</h3>
+                    <h4>Descripcion: ${val.description}</h4>
 
-        console.log(val);
-        h3first.append(`Nombre`)
-        h3second.append(`Tipo`)
-        h3third.append(`Empresa`)
-        descriptionContainer.append(divFirst)
-        conterDiv.push(descriptionContainer)
+                </div>
+            </div>`;
     });
-    return conterDiv
-}
+
+    return htmlContent;
+};
