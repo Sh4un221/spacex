@@ -19,6 +19,7 @@ export const rocketGeneralInformation = (Rockets) => {
                     <p><strong>Company</strong>: ${val.company}</p>
                     <p><strong>Status</strong>: ${status}</p>
                     <p><strong>Description</strong>: ${val.description}</p>
+                    <p><strong>Wikipedia</strong>: <a href=${val.wikipedia} target="_blank">Ir a la pagina de wikipedia</a></p>
 
 
                 </div>

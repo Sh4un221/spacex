@@ -1,4 +1,4 @@
-export const progressRocketWeight = (Totales, Rockets)=>{
+export const progressRocketWeight = (Totales, Rockets) => {
     let conterDiv = [];
 
     [Rockets].forEach(val => {
@@ -7,19 +7,19 @@ export const progressRocketWeight = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFirst = document.createElement("label");
         labelFirst.textContent = "Rocket weight :";
-    
+
         let ProgressFirst = document.createElement("progress");
         ProgressFirst.max = Totales;
         ProgressFirst.value = `${val.mass.kg}`;
         ProgressFirst.textContent = `${val.mass.kg}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numKg = new Intl.NumberFormat('cop').format(val.mass.kg)
         let numLb = new Intl.NumberFormat('cop').format(val.mass.lb)
         spanLast.innerHTML = `${numKg} kg <br> ${numLb} lb`
-    
+
         divFirst.append(labelFirst)
         divFirst.append(ProgressFirst)
         divLast.append(spanLast)
@@ -29,7 +29,7 @@ export const progressRocketWeight = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressPayloadWeights = (Totales, Rockets)=>{
+export const progressPayloadWeights = (Totales, Rockets) => {
     let conterDiv = [];
     Rockets.payload_weights.forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -37,19 +37,19 @@ export const progressPayloadWeights = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
         labelFist.textContent = `${val.name} :`;
-    
+
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = Totales;
         ProgressFist.value = `${val.kg}`;
         ProgressFist.textContent = `${val.kg}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numKg = new Intl.NumberFormat('cop').format(val.kg)
         let numLb = new Intl.NumberFormat('cop').format(val.lb)
         spanLast.innerHTML = `${numKg} kg <br> ${numLb} lb`
-    
+
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
         divLast.append(spanLast)
@@ -59,7 +59,7 @@ export const progressPayloadWeights = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressHeightRocket = (Totales, Rockets)=>{
+export const progressHeightRocket = (Totales, Rockets) => {
     let conterDiv = [];
     [Rockets.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -67,19 +67,19 @@ export const progressHeightRocket = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
         labelFist.textContent = `Rocket Height :`;
-    
+
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = Totales;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
         spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
-    
+
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
         divLast.append(spanLast)
@@ -89,7 +89,7 @@ export const progressHeightRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressDiameterRocket = (Totales, Rockets)=>{
+export const progressDiameterRocket = (Totales, Rockets) => {
     let conterDiv = [];
     [Rockets.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -97,19 +97,19 @@ export const progressDiameterRocket = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
         labelFist.textContent = `Rocket diameter :`;
-    
+
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = Totales;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
         spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
-    
+
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
         divLast.append(spanLast)
@@ -119,7 +119,7 @@ export const progressDiameterRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
+export const progressSecondStageDiameterRocket = (Totales, Rockets) => {
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -127,19 +127,19 @@ export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
         labelFist.textContent = `Diameter rocket shield :`;
-    
+
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = Totales;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
         spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
-    
+
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
         divLast.append(spanLast)
@@ -149,7 +149,7 @@ export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
+export const progressSecondStageHeightRocket = (Totales, Rockets) => {
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -157,19 +157,19 @@ export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
         let divFirst = document.createElement("div");
         let labelFirst = document.createElement("label");
         labelFirst.textContent = `Height rocket shield :`;
-    
+
         let ProgressFirst = document.createElement("progress");
         ProgressFirst.max = Totales;
         ProgressFirst.value = `${val.meters}`;
         ProgressFirst.textContent = `${val.meters}%`;
-    
-    
+
+
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
         spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
-    
+
         divFirst.append(labelFirst)
         divFirst.append(ProgressFirst)
         divLast.append(spanLast)
