@@ -1,7 +1,8 @@
 import {
     getAllRocketEngineTotal,
     getAllRocketEngineThrustVacuumTotal,
-    getAllLandingLegs
+    getAllLandingLegs,
+    getSuccessRate
 } from "../modules/rockets.js";
 
 
@@ -107,4 +108,8 @@ export const informRocketLegs = async (landing_legs) => {
     let section__information__2 = document.querySelector("#section__information__2")
     section__information__2.innerHTML = "";
     section__information__2.append(div)
+}
+
+export const informRocketsSuccess=async(rocket)=>{
+    console.log(await getSuccessRate());
 }

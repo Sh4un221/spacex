@@ -214,3 +214,25 @@ export const getAllLandingLegs = async () => {
     let { docs: [{ landing_legs } = { landing_legs: { number: 0 } }] } = await res.json();
     return landing_legs;
 }
+
+export const getSuccessRate=async()=>{
+    let config={
+        headers:{
+            "content-type":"application/json"
+        },
+        method:"POST",
+        body: JSON.stringify({
+            "options":{
+                "select":{
+                    "success_rate_pct":1
+                },
+                "sort":{
+                    success_rate_pct:"desc"
+                }
+            }
+        })
+    };
+    let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+    let { docs: [{ success_rate_pct } = { success_rate_pct: { number: 0 } }] } = await res.json();
+    return success_rate_pct;
+}
