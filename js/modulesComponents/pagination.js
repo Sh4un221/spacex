@@ -13,7 +13,9 @@ import {
 } from "./information.js";
 import { 
     informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
+    informRocketEngineThrustVacuum,
+    informRocketLegs
+
 } from "./inform.js";
 import { 
     imageRockets 
@@ -43,6 +45,7 @@ const getRocketsId = async(e)=>{
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = "";
 
+
     let Rocket = await getAllRocketsId(e.target.id);
     console.log(Rocket);
 
@@ -54,6 +57,7 @@ const getRocketsId = async(e)=>{
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    await informRocketLegs(Rocket.landing_legs.number)
     await imageRockets(Rocket.flickr_images);
 
     await progressRocketWeight(Rocket)

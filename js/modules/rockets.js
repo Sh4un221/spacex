@@ -1,16 +1,16 @@
-export const getAllRockets = async ()=>{
+export const getAllRockets = async () => {
     let res = await fetch("https://api.spacexdata.com/v4/rockets")
     let data = await res.json();
     return data;
 }
-export const getAllRocketsId = async (id)=>{
+export const getAllRocketsId = async (id) => {
     let res = await fetch(`https://api.spacexdata.com/v4/rockets/${id}`)
     let data = await res.json();
     return data;
 }
-export const getRocketMassTotal  = async() =>{
+export const getRocketMassTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -20,7 +20,7 @@ export const getRocketMassTotal  = async() =>{
                     "name": 1,
                     "mass": 1
                 },
-                "sort":{
+                "sort": {
                     "mass.kg": "desc"
                 },
                 "limit": 1
@@ -28,39 +28,39 @@ export const getRocketMassTotal  = async() =>{
         })
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
-    let {docs:[{mass} = maxMassRocket]} = await res.json();
+    let { docs: [{ mass } = maxMassRocket] } = await res.json();
     return mass;
 }
-export const getRocketPayloadWeightsTotal  = async() =>{
+export const getRocketPayloadWeightsTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
         body: JSON.stringify({
-        
+
             "options": {
                 "select": {
                     "name": 1,
                     "payload_weights": 1
                 },
-                "sort":{
+                "sort": {
                     "payload_weights.kg": "desc"
                 },
             }
         })
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
-    let {docs} = await res.json();
+    let { docs } = await res.json();
     let data = []
     docs.forEach(val => data.push(...val.payload_weights))
-    data.sort((a,b) => b.kg - a.kg)
+    data.sort((a, b) => b.kg - a.kg)
     let [maxPayloadWeightsRocket] = data;
     return maxPayloadWeightsRocket;
 }
-export const getRocketHeightTotal  = async() =>{
+export const getRocketHeightTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -76,12 +76,12 @@ export const getRocketHeightTotal  = async() =>{
         })
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
-    let {docs:[{height} = maxHeightRocket]} = await res.json();
+    let { docs: [{ height } = maxHeightRocket] } = await res.json();
     return height;
 }
-export const getRocketDiameterTotal  = async() =>{
+export const getRocketDiameterTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -98,12 +98,12 @@ export const getRocketDiameterTotal  = async() =>{
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
     // console.log(await res.json());
-    let {docs:[{diameter} = maxdiameterRocket]} = await res.json();
+    let { docs: [{ diameter } = maxdiameterRocket] } = await res.json();
     return diameter;
 }
-export const getRocketSecondStageCompositeFairingDiameterTotal  = async() =>{
+export const getRocketSecondStageCompositeFairingDiameterTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -119,13 +119,13 @@ export const getRocketSecondStageCompositeFairingDiameterTotal  = async() =>{
         })
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
-    let {docs:[maxDiameterCompositeFairingRocket ]} = await res.json();
-    let {second_stage: {payloads: {composite_fairing: {diameter}}}} = maxDiameterCompositeFairingRocket
+    let { docs: [maxDiameterCompositeFairingRocket] } = await res.json();
+    let { second_stage: { payloads: { composite_fairing: { diameter } } } } = maxDiameterCompositeFairingRocket
     return diameter;
 }
-export const getRocketSecondStageCompositeFairingHeightTotal  = async() =>{
+export const getRocketSecondStageCompositeFairingHeightTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -142,14 +142,14 @@ export const getRocketSecondStageCompositeFairingHeightTotal  = async() =>{
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
     // console.log(await res.json());
-    let {docs:[maxHeightCompositeFairingRocket ]} = await res.json();
-    let {second_stage: {payloads: {composite_fairing: {height}}}} = maxHeightCompositeFairingRocket
+    let { docs: [maxHeightCompositeFairingRocket] } = await res.json();
+    let { second_stage: { payloads: { composite_fairing: { height } } } } = maxHeightCompositeFairingRocket
     // console.log(height);
     return height;
 }
-export const getAllRocketEngineTotal  = async() =>{
+export const getAllRocketEngineTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -166,12 +166,12 @@ export const getAllRocketEngineTotal  = async() =>{
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
     // console.log(await res.json());
-    let {docs:[{engines} = maxEnginesRocket]} = await res.json();
+    let { docs: [{ engines } = maxEnginesRocket] } = await res.json();
     return engines.thrust_sea_level;
 }
-export const getAllRocketEngineThrustVacuumTotal  = async() =>{
+export const getAllRocketEngineThrustVacuumTotal = async () => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -188,6 +188,29 @@ export const getAllRocketEngineThrustVacuumTotal  = async() =>{
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
     // console.log(await res.json());
-    let {docs:[{engines} = maxEnginesRocket]} = await res.json();
+    let { docs: [{ engines } = maxEnginesRocket] } = await res.json();
     return engines.thrust_vacuum;
+}
+
+export const getAllLandingLegs = async () => {
+    let config = {
+        headers: {
+            "content-type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            "options": {
+                "select": {
+                    "landing_legs": 1
+                },
+                "sort": {
+                    "landing_legs.number": "desc"
+                }
+            }
+        })
+    };
+
+    let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+    let { docs: [{ landing_legs } = { landing_legs: { number: 0 } }] } = await res.json();
+    return landing_legs;
 }
