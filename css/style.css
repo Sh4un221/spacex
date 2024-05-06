@@ -9,8 +9,7 @@
 }
 
 body {
-    background: linear-gradient(var(--color--one), var(--color--one--rgba));
-}
+    background-image: linear-gradient(to left bottom, #871c5e, #7c2568, #702d70, #623377, #52397b, #4b4082, #424789, #384e8e, #34599b, #2e65a7, #2670b3, #197cbe);}
 
 *::-webkit-scrollbar {
     height: 12px;
@@ -258,11 +257,13 @@ body {
 }
 
 .footer {
-    background: coral;
+    background: #871C5E;
     grid-area: section__footer;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas: ". footer__menu .";
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
 }
 
 .footer ul {
