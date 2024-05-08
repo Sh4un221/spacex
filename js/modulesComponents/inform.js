@@ -2,7 +2,6 @@ import {
     getAllRocketEngineTotal,
     getAllRocketEngineThrustVacuumTotal,
     getAllLandingLegs,
-    getSuccessRate
 } from "../modules/rockets.js";
 
 
@@ -84,7 +83,6 @@ export const informRocketEngineThrustVacuum = async (thrust_vacuum) => {
 }
 export const informRocketLegs = async (landing_legs) => {
     let { number: totalNumber } = await getAllLandingLegs();
-
     let porcentaje = (landing_legs * 100) / totalNumber
     let div = document.createElement('div');
     div.classList.add("carousel__item")
@@ -110,24 +108,22 @@ export const informRocketLegs = async (landing_legs) => {
     section__information__2.append(div)
 }
 
-export const informRocketsSuccess=async(rocket)=>{
-    let data=await getSuccessRate()
-    console.log(data);
+export const informRocketsSuccess=async(percent)=>{
     let div = document.createElement('div');
     div.classList.add("carousel__item")
     let divFirst = document.createElement('div');
     divFirst.classList.add("item__progress__bar");
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${data.success_rate_pct}%, transparent 0)`
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${percent}%, transparent 0)`
     let divFirstChildren = document.createElement('div');
 
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "Landing Legs"
+    strong.textContent = "Success Rate"
     let smallFirst = document.createElement('small')
-    smallFirst.textContent = `${data.success_rate_pct.toFixed(2)}%`
+    smallFirst.textContent = `${percent.toFixed(2)}%`
 
     let smallLast = document.createElement('small');
-    smallLast.textContent = `${data.success_rate_pct}`
+    smallLast.textContent = `${percent}`
 
     divFirstChildren.append(strong, smallFirst, smallLast)
     divFirst.append(divFirstChildren)
