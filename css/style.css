@@ -253,7 +253,7 @@ body {
 
 .section__information__3 div:last-child {
     /* background: darkblue; */
-    grid-area: table__colum__2;
+    grid-area: table__colum__2; 
 }
 
 .footer {

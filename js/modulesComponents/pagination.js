@@ -29,7 +29,10 @@ import {
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
 } from "../modulesComponents/progressBar.js";
-
+import {
+    tableRocketColum1,
+    tableRocketColum2
+}from "./table.js"
 
 const getRocketsId = async(e)=>{
     e.preventDefault();
@@ -68,6 +71,9 @@ const getRocketsId = async(e)=>{
     await progressDiameterRocket(Rocket)
     await progressSecondStageDiameterRocket(Rocket)
     await progressSecondStageHeightRocket(Rocket)
+
+    await tableRocketColum1(Rocket)
+    await tableRocketColum2(Rocket)
 }
 export const paginationRockets = async()=>{
     let rockets = await getAllRockets();
