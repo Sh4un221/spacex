@@ -59,7 +59,7 @@ const getRocketsId = async(e)=>{
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
     await informRocketLegs(Rocket.landing_legs.number),
-    await informRocketsSuccess(Rocket)
+    await informRocketsSuccess(Rocket.success_rate_pct)
     await imageRockets(Rocket.flickr_images);
 
     await progressRocketWeight(Rocket)
