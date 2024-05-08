@@ -2,7 +2,7 @@ import {
     getAllRocketEngineTotal,
     getAllRocketEngineThrustVacuumTotal,
     getAllLandingLegs,
-    getSuccessRates
+    getSuccessRate
 } from "../modules/rockets.js";
 
 
@@ -110,32 +110,30 @@ export const informRocketLegs = async (landing_legs) => {
     section__information__2.append(div)
 }
 
-export const informRocketsSuccess = async () => {
-    let rockets = await getSuccessRates();
-    let section__information__2 = document.querySelector("#section__information__2");
-    section__information__2.innerHTML = "";
+export const informRocketsSuccess=async(rocket)=>{
+    let data=await getSuccessRate()
+    console.log(data);
+    let div = document.createElement('div');
+    div.classList.add("carousel__item")
+    let divFirst = document.createElement('div');
+    divFirst.classList.add("item__progress__bar");
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${data.success_rate_pct}%, transparent 0)`
+    let divFirstChildren = document.createElement('div');
 
-    rockets.forEach(rocket => {
-        let div = document.createElement('div');
-        div.classList.add("carousel__item")
-        let divFirst = document.createElement('div');
-        divFirst.classList.add("item__progress__bar");
-        divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${rocket.success_rate_pct}%, transparent 0)`
-        let divFirstChildren = document.createElement('div');
+    divFirstChildren.classList.add("progress__value")
+    let strong = document.createElement('strong');
+    strong.textContent = "Landing Legs"
+    let smallFirst = document.createElement('small')
+    smallFirst.textContent = `${data.success_rate_pct.toFixed(2)}%`
 
-        divFirstChildren.classList.add("progress__value")
-        let strong = document.createElement('strong');
-        strong.textContent = "Success rate"
-        let smallFirst = document.createElement('small')
-        smallFirst.textContent = `${rocket.success_rate_pct.toFixed(2)}%`
+    let smallLast = document.createElement('small');
+    smallLast.textContent = `${data.success_rate_pct}`
 
-        let smallLast = document.createElement('small');
-        smallLast.textContent = `${rocket.success_rate_pct}`
+    divFirstChildren.append(strong, smallFirst, smallLast)
+    divFirst.append(divFirstChildren)
+    div.append(divFirst)
+    let section__information__2 = document.querySelector("#section__information__2")
+    // section__information__2.innerHTML = "";
+    section__information__2.append(div)
 
-        divFirstChildren.append(strong, smallFirst, smallLast)
-        divFirst.append(divFirstChildren)
-        div.append(divFirst)
-        section__information__2.append(div);
-    });
 }
-
