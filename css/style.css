@@ -381,3 +381,66 @@ progress[value]::-moz-progress-bar {
     border-radius: 10em;
     background: var(--color);
 }
+.table__container__1 {
+    background-color: var(--color--one--rgba);
+    border: 1px solid var(--color--five);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table__container__1 > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--color--five);
+}
+
+.table__container__1 > div:last-child {
+    border-bottom: none;
+}
+
+.table__container__1 span {
+    color: var(--color--five);
+    font-weight: bold;
+}
+
+.table__container__1 strong {
+    color: var(--color--three);
+}
+
+
+.table__container__2 {
+    background-color: var(--color--one--rgba);
+    border: 1px solid var(--color--five);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table__container__2 > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--color--five);
+}
+
+.table__container__2 > div:last-child {
+    border-bottom: none;
+}
+
+.table__container__2 span {
+    color: var(--color--five);
+    font-weight: bold;
+}
+
+.table__container__2 strong {
+    color: var(--color--three);
+}
+.title__table__1, .title__table__2{
+    color: var(--color--five);
+    font-weight: 900;
+    text-align: center;
+}

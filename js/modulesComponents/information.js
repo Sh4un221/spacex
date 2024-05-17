@@ -96,7 +96,7 @@ export const informationWebRocket = async(wikipedia)=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.textContent = "Read more about the coete"
+    h3.textContent = "Read more about the rocket"
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia)
     a.setAttribute("target", "_blank")
@@ -116,3 +116,28 @@ export const informationWebRocket = async(wikipedia)=>{
     //     </div>
     // </div>
 }
+export const information = async () => {
+    let div = document.createElement('div');
+    div.classList.add('social_media_container');
+    const socialMedia = [
+        { href: 'https://www.facebook.com', icon: 'bx bxl-facebook' },
+        { href: 'https://www.twitter.com', icon: 'bx bxl-twitter' },
+        { href: 'https://www.instagram.com', icon: 'bx bxl-instagram' },
+        { href: 'https://www.linkedin.com', icon: 'bx bxl-linkedin' },
+        { href: 'https://www.youtube.com', icon: 'bx bxl-youtube' }
+    ];
+
+    socialMedia.forEach(social => {
+        let a = document.createElement('a');
+        a.href = social.href;
+        a.target = '_blank';
+
+        let i = document.createElement('i');
+        i.className = social.icon;
+        a.appendChild(i);
+        div.appendChild(a);
+    });
+    let description__buttom=document.querySelector('.description__buttom')
+    description__buttom.innerHTML=""
+    description__buttom.append(div)
+};
