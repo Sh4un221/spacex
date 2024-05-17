@@ -35,6 +35,7 @@ import {
     tableRocketColumn1,
     tableRocketColumn2
 }from "./table.js"
+import {getAllCapsules}from "../modules/capsules.js"
 
 
 export const load = async()=>{
@@ -124,13 +125,13 @@ const getRocketsId = async(e)=>{
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await informationFirstFlightRocket(Rocket.first_flight)
     await informationWebRocket(Rocket.wikipedia)
+    await information()
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    await informRocketLegs(Rocket.landing_legs.number),
+    await informRocketsSuccess(Rocket.success_rate_pct)
     await imageRockets(Rocket.flickr_images);
-
-    await tableRocketColumn1(Rocket)
-    await tableRocketColumn2(Rocket)
 
     await progressRocketWeight(Rocket)
     await progressPayloadWeights(Rocket)
@@ -138,6 +139,9 @@ const getRocketsId = async(e)=>{
     await progressDiameterRocket(Rocket)
     await progressSecondStageDiameterRocket(Rocket)
     await progressSecondStageHeightRocket(Rocket)
+
+    await tableRocketColumn1(Rocket)
+    await tableRocketColumn2(Rocket)
 }
 export const paginationRockets = async()=>{
     let rockets = await getAllRockets();
